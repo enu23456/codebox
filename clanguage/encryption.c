@@ -23,7 +23,7 @@ void Encryption_Encrypt(uint8_t *data, uint16_t length)
 {
     uint8_t random_number = LCG_SEED;
 
-    for (int i = 0; i < length; i++) {
+    for (uint16_t i = 0; i < length; i++) {
         random_number = (random_number * LCG_CONST_A) + LCG_CONST_B;
         //printf("pointer: %p, before: %d, ", data + i, *(data + i));
         *(data + i) = *(data + i) ^ random_number;
