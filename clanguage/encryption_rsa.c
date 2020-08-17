@@ -65,6 +65,8 @@ void RSA_generate_key_16bit(uint16_t RSA_p, uint16_t RSA_q, uint16_t *RSA_n, uin
         RSA_d += 1;
     }
     //printf("%d, %d, %d\n", fai, RSA_e, RSA_d);
+
+    return;
 }
 
 /**
