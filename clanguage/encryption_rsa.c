@@ -71,7 +71,7 @@ void RSA_generate_key_16bit(uint16_t RSA_p, uint16_t RSA_q, uint16_t *RSA_n, uin
  * @brief 暗号化処理を行う
  */
 /* ------------------------------------------------------------------------- */
-void RSA_Encrypt(uint16_t *data, uint16_t length, uint16_t RSA_n, uint16_t RSA_e)
+void RSA_encrypt(uint16_t *data, uint16_t length, uint16_t RSA_n, uint16_t RSA_e)
 {
     for (uint16_t i = 0; i < length; i++) {
         //printf("%d, ", *(data + i));
@@ -85,7 +85,7 @@ void RSA_Encrypt(uint16_t *data, uint16_t length, uint16_t RSA_n, uint16_t RSA_e
  * @brief 復号化処理を行う
  */
 /* ------------------------------------------------------------------------- */
-void RSA_Decrypt(uint16_t *data, uint16_t length, uint16_t RSA_n)
+void RSA_decrypt(uint16_t *data, uint16_t length, uint16_t RSA_n)
 {
     for (uint16_t i = 0; i < length; i++) {
         *(data + i) = Math_calc_pow(*(data + i), RSA_d, RSA_n);
@@ -119,7 +119,7 @@ int main(void)
     //printf("public key: %d, %d\n", RSA_n, RSA_e);
 
     /* 暗号化を行う */
-    RSA_Encrypt(targetData, dataLength, RSA_n, RSA_e);
+    RSA_encrypt(targetData, dataLength, RSA_n, RSA_e);
     printf("encrypted: ");
     for (uint16_t i = 0; i < dataLength; i++) {
         printf("%d, ", targetData[i]);
@@ -127,7 +127,7 @@ int main(void)
     printf("\n");
 
     /* 復号化を行う */
-    RSA_Decrypt(targetData, dataLength, RSA_n);
+    RSA_decrypt(targetData, dataLength, RSA_n);
     printf("decrypted: ");
     for (uint16_t i = 0; i < dataLength; i++) {
         printf("%d, ", targetData[i]);

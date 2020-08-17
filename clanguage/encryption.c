@@ -19,7 +19,7 @@ const uint8_t LCG_CONST_B = 199; /* 線形合同法のパラメータ */
          encrypted: 136
  */
 /* ------------------------------------------------------------------------- */
-void Encryption_Encrypt(uint8_t *data, uint16_t length)
+void Encryption_encrypt(uint8_t *data, uint16_t length)
 {
     uint8_t random_number = LCG_SEED;
 
@@ -41,9 +41,9 @@ void Encryption_Encrypt(uint8_t *data, uint16_t length)
          decrypted: 24
  */
 /* ------------------------------------------------------------------------- */
-void Encryption_Decrypt(uint8_t *data, uint16_t length)
+void Encryption_decrypt(uint8_t *data, uint16_t length)
 {
-    Encryption_Encrypt(data, length);
+    Encryption_encrypt(data, length);
     return;
 }
 
@@ -62,11 +62,11 @@ int main(void)
     printf("plainData: %s\n", targetData);
 
     /* 暗号化を行う */
-    Encryption_Encrypt(targetData, dataLength);
+    Encryption_encrypt(targetData, dataLength);
     printf("encrypted: %s\n", targetData);
 
     /* 復号化を行う */
-    Encryption_Decrypt(targetData, dataLength);
+    Encryption_decrypt(targetData, dataLength);
     printf("decrypted: %s\n", targetData);
 
     printf("+++++++ end of Program +++++++\n");
