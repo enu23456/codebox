@@ -5,16 +5,17 @@
 
 /**
  * @brief マルチプレクサ
- * @parma input[3:0] A
- * @parma input[1:0] S
- * @parma output F
+ * @param [in] A
+ * @param [in] S
+ * @param [out] F
  */
+/* ------------------------------------------------------------------------- */
 module multiplexer(
     input[3:0] A,
     input[1:0] S,
     output F
     );
-
+    
     function[1:0] multi;
         input S;
         case(S)
@@ -38,7 +39,8 @@ endmodule
 /**
  * @brief マルチプレクサのテストベンチ
  */
-module multiplexer_test();
+/* ------------------------------------------------------------------------- */
+module multiplexer_tb();
     /* input */
     reg[3:0] a;
     reg[1:0] s;
@@ -53,7 +55,7 @@ module multiplexer_test();
     initial begin
         $monitor("A = %b, S = %b ... F = %b", a, s, f);
         $dumpfile("multiplexer.vcd");
-        $dumpvars(0, multiplexer_test);
+        $dumpvars(0, multiplexer_tb);
 
         a = 4'b0101;
         s = 2'b00;
