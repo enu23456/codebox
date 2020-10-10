@@ -10,6 +10,8 @@ Note:
     3. サーバーから送られてきたチャレンジと自身のパスワードからハッシュ値を生成する
     4. 生成したハッシュ値 （レスポンス） を サーバーへ送信する
     5. サーバー側もクライアントと同様に ハッシュ値を生成し、同値か確認する
+Note:
+    参考: https://ftsafe.co.jp/assets/files/download/other/challengeresponse.pdf
 """
 
 import random
