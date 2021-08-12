@@ -21,7 +21,8 @@ fn main() {
             random.next()
         );
     }
-    let mut random_another = lib_rng32::RNG32::new_with_type(0, 1);
+    let mut random_another =
+        lib_rng32::RNG32::new_with_type(0, lib_rng32::GeneratorType::XOSHIRO32x4ss);
     print!("seed: {}, ", 0);
     println!(
         "random: {}, {}, {}",
